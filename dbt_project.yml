@@ -39,4 +39,8 @@ models:
   dbt_Analytics:
     # Applies to all files under models/example/
     raw:
+      +materialized: table
+    staging:
       +materialized: view
+    reporting:
+      +materialized: table
