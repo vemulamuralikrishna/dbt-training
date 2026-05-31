@@ -17,9 +17,11 @@ p.productid,
 p.category,
 p.productname,
 p.subcategory,
-{{markup()}}
+d.delivery_team
 FROM  {{ ref('raw_orders') }} o
 LEFT JOIN {{ ref('raw_customer') }} c
 ON o.customerid = c.customerid
 LEFT JOIN {{ ref('raw_product') }} p
 ON o.productid = p.productid
+LEFT JOIN {{ ref('delivery_team') }} d
+ON o.shipmode = d.shipmode
